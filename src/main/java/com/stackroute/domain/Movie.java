@@ -1,4 +1,4 @@
-/*/*Add constructor to the Actor class to initialize with name and gender, and age
+/*Add constructor to the Actor class to initialize with name and gender, and age
 Create three beans of type Actor in the bean definition file.
 Use constructor-based injection in the bean definition file (beans.xml) to inject property values in
 each of the three beans via name, index, and type respectively.
@@ -18,6 +18,7 @@ package com.stackroute.domain;
 
 public class Movie {
     private Actor actor;
+    //Movie constructor//
     public Movie()
     {
 
@@ -25,6 +26,7 @@ public class Movie {
     Movie(Actor actor){
         this.actor=actor;
     }
+    //getter and setter method//
     public Actor getActor() {
         return actor;
     }

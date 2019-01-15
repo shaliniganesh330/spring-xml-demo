@@ -16,6 +16,7 @@ Push the code to constructor-injection branch.*/
 package com.stackroute.domain;
 
 public class Actor {
+    //private members//
     private String name;
     private String gender;
     private int age;
@@ -27,7 +28,7 @@ public class Actor {
         this.gender = gender;
         this.age = age;
     }
-
+//getter and setter method//
     public String getName() {
         return name;
     }
