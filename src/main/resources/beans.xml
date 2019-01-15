@@ -42,6 +42,10 @@
     <!--Replaced id of the Movie bean with name having two values-->
     <bean name="movieD,movieE" class="com.stackroute.domain.Movie" scope="prototype">
         <constructor-arg name="actor" ref="actorAsha"></constructor-arg></bean>
+
     <!--BeanLifecycleDemoBean bean definition to call init-method and destroy-method-->
     <bean name="BeanLifecycleDemoBean" class="com.stackroute.demo.BeanLifecycleDemoBean" init-method="customInit" destroy-method="customDestroy"></bean>
+
+    <!--Defining BeanLifecycleDemoBean as a bean-->
+    <bean id="beanPostProcessorDemo" class="com.stackroute.demo.BeanPostProcessorDemoBean"></bean>
 </beans>
