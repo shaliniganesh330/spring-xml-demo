@@ -32,5 +32,6 @@ public class main {
         System.out.println(movieABC.getActor());
 //        Printed the equality result of the two Movie beans.//
         System.out.println(movie4==movieABC);
+        ((ClassPathXmlApplicationContext) context).registerShutdownHook();
     }
 }
