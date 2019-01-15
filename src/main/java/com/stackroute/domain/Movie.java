@@ -1,17 +1,20 @@
-/*From the constructor-injection branch of spring-xml-demo repo create a
-autowire-xml branch.
-For the Movie bean, delete the constructor based object injection in the bean definition file
-(beans.xml) that injects an Actor bean.
-Use autowire byName in the Movie bean to inject an Actor bean.
-Run the application.
-Create another Movie bean and try autowire byType.
-Run the application and note the exception thrown.
-Fix the Movie bean by removing autowire byType and using constructor injection instead.
-Push the code to autowire-xml branch.*/
+/*From the autowire-xml branch of spring-xml-demo repo create an aware-interface
+branch.
+Implement ApplicationContextAware, BeanFactoryAware, BeanNameAware in the
+Movie class and print out their results.
+Push the code to aware-interface branch. */
 
 package com.stackroute.domain;
 
-public class Movie {
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+
+public class Movie implements ApplicationContextAware, BeanNameAware, BeanFactoryAware {
+    private ApplicationContext applicationContext;
     private Actor actor;
     //Movie constructor//
     public Movie()
@@ -34,5 +37,23 @@ public class Movie {
         return "Movie{" +
                 "actor=" + actor +
                 '}';
+    }
+//    Implemented ApplicationContextAware, BeanFactoryAware, BeanNameAware in the Movie class//
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        Movie movie=(Movie) beanFactory.getBean("movieXYZ");
+        System.out.println("From Bean Factory"+movie.getActor().getGender());
+        System.out.println("From Bean Factory"+movie.getActor().getName());
+        System.out.println("From Bean Factory"+movie.getActor().getAge());
+    }
+
+    public void setBeanName(String s) {
+        System.out.println("Bean name is "+s);
+    }
+
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        Movie movie=(Movie) applicationContext.getBean("movieXYZ");
+        System.out.println("from application Context aware"+movie.getActor().getAge());
+        System.out.println("from application Context aware"+movie.getActor().getName());
+        System.out.println("from application Context aware"+movie.getActor().getGender());
     }
 }

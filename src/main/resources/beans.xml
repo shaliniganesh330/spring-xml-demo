@@ -5,7 +5,7 @@
        xsi:schemaLocation = "http://www.springframework.org/schema/beans
   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
     <bean id="actorAsha" class="com.stackroute.domain.Actor" >
-        <property name="name" value="asha"></property>
+        <property name="name" value="ashvik"></property>
         <property name="age" value="30"></property>
         <property name="gender" value="female"></property>
     </bean>
@@ -16,11 +16,11 @@
         <constructor-arg name="gender" value="male"></constructor-arg>
         <constructor-arg name="age" value="1"></constructor-arg>
     </bean>
-    <bean id="actorA" class="com.stackroute.domain.Actor" >
-        <constructor-arg type="String" value="asha"></constructor-arg>
-        <constructor-arg type="String" value="female"></constructor-arg>
-        <constructor-arg type="int" value="30"></constructor-arg>
-    </bean>
+    <!--<bean id="actorA" class="com.stackroute.domain.Actor" >-->
+        <!--<constructor-arg type="String" value="asha"></constructor-arg>-->
+        <!--<constructor-arg type="String" value="female"></constructor-arg>-->
+        <!--<constructor-arg type="int" value="30"></constructor-arg>-->
+    <!--</bean>-->
 
     <bean id="actorC" class="com.stackroute.domain.Actor" >
         <constructor-arg index="0" value="asheeth"></constructor-arg>
@@ -29,7 +29,7 @@
     </bean>
 
     <bean id="movieXYZ" class="com.stackroute.domain.Movie">
-        <property name="actor" ref="actorAsha"></property></bean>
+        <property name="actor" ref="actorC"></property></bean>
     <!--bean for creating autowire byname-->
     <bean id="moviePQR" class="com.stackroute.domain.Movie" autowire="byName">
         <!--&lt;!&ndash;<constructor-arg name="actor" ref="actorAsha"></constructor-arg>-->
