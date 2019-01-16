@@ -18,7 +18,7 @@ public class Movie {
     {
 
     }
-    Movie(Actor actor){
+    Movie(Actor actorC){
         this.actor=actor;
     }
     //getter and setter method//
